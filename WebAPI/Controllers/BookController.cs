@@ -50,13 +50,13 @@ namespace WebAPI.Controllers
             return NoContent();
         }
 
-        [HttpPut]
-        public async Task<ActionResult> PutBooks([FromBody] Book book)
+        [HttpPut("{id}")]
+        public async Task<ActionResult> PutBooks(long id, [FromBody] Book book)
         {
             if (book == null)
                 return BadRequest();
 
-            await _bookRepository.UpdateBook(book);
+            await _bookRepository.UpdateBook(id, book);
 
             return NoContent();
         }

@@ -39,7 +39,7 @@ namespace WebAPI.Repositories
             return await _context.Books.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task UpdateBook(Book book)
+        public async Task UpdateBook(long id, Book book)
         {
             _context.Entry(book).State = EntityState.Modified;
             await _context.SaveChangesAsync();
